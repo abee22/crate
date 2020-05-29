@@ -8,7 +8,9 @@ import { connect } from 'react-redux'
 import userRoutes from '../../setup/routes/user'
 
 // Component
-const RoutePrivate = (props) => (
+const RoutePrivate = (props) => {
+  console.log('abhi', props);
+  return (
   props.user.isAuthenticated
     ? props.role
         ? props.user.details.role === props.role
@@ -16,7 +18,7 @@ const RoutePrivate = (props) => (
           : <Redirect to={userRoutes.login.path}/>
         : <Route {...props} component={props.component}/>
     : <Redirect to={userRoutes.login.path}/>
-)
+)};
 
 // Component Properties
 RoutePrivate.propTypes = {

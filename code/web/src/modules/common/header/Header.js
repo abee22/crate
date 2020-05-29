@@ -17,6 +17,7 @@ import admin from '../../../setup/routes/admin'
 import Logo from './Logo'
 import Menu from './Menu'
 import MenuItem from './MenuItem'
+import product from '../../../setup/routes/product'
 
 // Component
 const Header = (props) => {
@@ -54,7 +55,7 @@ const Header = (props) => {
             props.user.isAuthenticated
               ?
               <Menu>
-                { props.user.details.role === 'ADMIN' && <MenuItem to={admin.dashboard.path} section="admin">Admin</MenuItem> }
+                { props.user.details.role === 'ADMIN' ? <MenuItem to={admin.dashboard.path} section="admin">Admin</MenuItem> : <MenuItem to={product.prod_list.path}>Products</MenuItem>}
 
                 <MenuItem to={crate.list.path}>Crates</MenuItem>
 
